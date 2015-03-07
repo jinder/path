@@ -10,7 +10,7 @@
     "path"
   ],
   "license": "MIT",
-  "version": "0.11.14",
+  "version": "0.12.0",
   "homepage": "http://nodejs.org/docs/latest/api/path.html",
   "repository": {
     "type": "git",
