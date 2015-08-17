@@ -16,5 +16,9 @@
     "type": "git",
     "url": "git://github.com/jinder/path.git"
   },
-  "main": "./path.js"
+  "main": "./path.js",
+  "dependencies": {
+    "process": "^0.11.1",
+    "util": "^0.10.3"
+  }
 }
