@@ -257,7 +257,6 @@ win32.join = function() {
   if (!/^[\\\/]{2}[^\\\/]/.test(paths[0])) {
     joined = joined.replace(/^[\\\/]{2,}/, '\\');
   }
-
   return win32.normalize(joined);
 };
 
@@ -483,20 +482,9 @@ posix.isAbsolute = function(path) {
 
 // posix version
 posix.join = function() {
-  var path = '';
-  for (var i = 0; i < arguments.length; i++) {
-    var segment = arguments[i];
-    if (!util.isString(segment)) {
-      throw new TypeError('Arguments to path.join must be strings');
-    }
-    if (segment) {
-      if (!path) {
-        path += segment;
-      } else {
-        path += '/' + segment;
-      }
-    }
-  }
+  var path = Array.from(arguments).reduce((path, segment) => !util.isString(segment) ? (() => {
+    if (!util.isString(segment)) throw new TypeError('Arguments to path.join must be strings');
+  })() : (!path ? path += segment : path += '/' + segment), '');
   return posix.normalize(path);
 };
 
