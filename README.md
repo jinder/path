@@ -7,7 +7,7 @@ This is an exact copy of the NodeJS ’path’ module published to the NPM regis
 ## Install
 
 ```sh
-$ npm install --save path
+$ npm install path
 ```
 
 ## License
